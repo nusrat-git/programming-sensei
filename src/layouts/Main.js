@@ -8,7 +8,7 @@ const Main = () => {
     return (
         <div>
             <NaviBar></NaviBar>
-            <div className='flex justify-around'>
+            <div className='md:flex justify-around'>
                 <SideNav></SideNav>
                 <Outlet></Outlet>
             </div>

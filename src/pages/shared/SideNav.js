@@ -12,9 +12,9 @@ const SideNav = () => {
             .then(data => setCategories(data))
     }, [])
     return (
-        <div className='mt-6 ml-7'>
+        <div className='mt-6 ml-7 grid grid-cols-3 md:block'>
             {
-                categories.map(category => <h1 key={category.id} className='text-2xl p-5 font-bold'><Link to={`/classes/${category.id}`}>{category.name}</Link ></h1>)
+                categories.map(category => <h1 key={category.id} className='text-2xl p-2 md:p-5 font-bold'><Link to={`/classes/${category.id}`}>{category.name}</Link ></h1>)
             }
         </div>
     );

@@ -78,7 +78,7 @@ const SignUp = () => {
 
 
     return (
-        <div>
+        <div  className='m-4 pt-5 md:m-0 md:pt-0'>
             <form className="flex flex-col gap-4 md:w-96 mx-auto">
                 <div>
                     <div className="mb-2 block text-start ml-2">

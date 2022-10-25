@@ -60,7 +60,8 @@ const Routes = () => {
                     element: <CourseDetail></CourseDetail>
                 },
                 {
-                    path: '/checkout',
+                    path: '/checkout/:id',
+                    loader: ({ params }) => fetch(`http://localhost:5000/checkout/${params.id}`),
                     element: <PrivateRoute><Checkout></Checkout></PrivateRoute>
                 },
                 {

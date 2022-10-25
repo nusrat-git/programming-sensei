@@ -25,9 +25,9 @@ const UserContext = ({ children }) => {
         return createUserWithEmailAndPassword(auth, email, password)
     }
 
-    const signIn =(email, password) =>{
+    const signIn = (email, password) => {
         setLoading(true)
-        return signInWithEmailAndPassword(auth , email, password)
+        return signInWithEmailAndPassword(auth, email, password)
     }
 
     const logOut = () => {
@@ -35,14 +35,10 @@ const UserContext = ({ children }) => {
         return signOut(auth);
     }
 
-
-
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-
-            if (currentUser === null) {
-                setUser(currentUser);
-            }
+            console.log('inside auth state change', currentUser);
+            setUser(currentUser)
             setLoading(false);
         });
 
@@ -52,7 +48,24 @@ const UserContext = ({ children }) => {
 
     }, [])
 
-    const authValue = { popUpSignIn, emailPasswordSignIn, user, loading, setLoading, logOut, signIn };
+
+
+    // useEffect(() => {
+    //     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+
+    //         if (currentUser === null) {
+    //             setUser(currentUser);
+    //         }
+    //         setLoading(false);
+    //     });
+
+    //     return () => {
+    //         unsubscribe();
+    //     }
+
+    // }, [])
+
+    const authValue = { popUpSignIn, emailPasswordSignIn, user, loading, setLoading, logOut, signIn, setUser };
 
     return (
         <AuthContext.Provider value={authValue}>

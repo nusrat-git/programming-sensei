@@ -13,7 +13,7 @@ const Login = () => {
 
     const from = location.state?.from?.pathname || '/';
 
-    const {signIn,setLoading} = useContext(AuthContext)
+    const {signIn,setLoading,setUser} = useContext(AuthContext)
 
 
     const [email, setEmail] = useState('');
@@ -30,17 +30,15 @@ const Login = () => {
     }
 
 
-    const handleSignIn = () => {
+    const handleSignIn = (event) => {
+        event.preventDefault();
+
         signIn(email,password)
         .then(result => {
             const user = result.user;
+            setUser(user);
             console.log(user);
-            if(user){
-                navigate(from, {replace: true});
-            }
-            else{
-                toast.error('Please Log In')
-            }
+            navigate(from, {replace: true})
         })
         .catch(error => console.error(error))
         .finally(() => {
@@ -50,7 +48,7 @@ const Login = () => {
     
 
     return (
-        <div className=''>
+        <div className='m-4 pt-5 md:m-0 md:pt-0'>
             <form className="flex flex-col gap-4 md:w-96 mx-auto">
                 <div>
                     <div className="mb-2 block text-start ml-2">

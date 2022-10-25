@@ -6,11 +6,15 @@ import Logo from '../../src/logo.png'
 import { AuthContext } from '../contexts/UserContext';
 
 const NaviBar = () => {
-    const { user, logOut } = useContext(AuthContext);
+    const { user, logOut, setUser } = useContext(AuthContext);
 
     const handleLogOut = () => {
         logOut()
-            .then(() => { })
+            .then(() => {
+
+                setUser(null)
+
+            })
             .catch(error => console.error(error))
     }
     return (
@@ -69,6 +73,28 @@ const NaviBar = () => {
                     <Link to="/faq">
                         FAQ
                     </Link>
+                    <div className='md:hidden'>
+                        <>
+                            {
+                                user?.uid ?
+                                    <>
+                                        <span>{user?.displayName}</span>
+                                        <Button variant="light" onClick={handleLogOut}><Link>Log out</Link></Button>
+                                    </>
+                                    :
+                                    <>
+                                        <Button className='my-4 md:my-4'>
+                                            <Link to='/login'>Log In</Link>
+                                        </Button>
+                                        <Button>
+                                            <Link to='/signup'>Sign Up</Link>
+                                        </Button>
+                                    </>
+                            }
+
+
+                        </>
+                    </div>
 
                 </Navbar.Collapse>
             </Navbar>
