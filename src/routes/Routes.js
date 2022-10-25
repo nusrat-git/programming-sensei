@@ -36,6 +36,14 @@ const Routes = () => {
                     element: <Faq></Faq>
                 },
                 {
+                    path:'login',
+                    element: <Login></Login>
+                },
+                {
+                    path:'signup',
+                    element: <SignUp></SignUp>
+                },
+                {
                     path:'*',
                     element: <h1>Sorry Route not found</h1>
                 }

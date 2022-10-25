@@ -16,7 +16,7 @@ const NaviBar = () => {
                         className="mr-3 h-6 sm:h-9"
                         alt="Progamming Sensei Logo"
                     />
-                    <span className="self-center whitespace-nowrap text-xl font-semibold italic text-3xl dark:text-white">
+                    <span className="self-center whitespace-nowrap font-semibold italic text-3xl dark:text-white">
                         Sensei
                     </span>
                 </Navbar.Brand>
@@ -32,7 +32,7 @@ const NaviBar = () => {
                 <Navbar.Collapse>
                     <Link
                         to="/home"
-                        active={true}
+                        active='true'
                     >
                         Home
                     </Link>
