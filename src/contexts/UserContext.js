@@ -10,7 +10,7 @@ const auth = getAuth(app);
 
 const UserContext = ({ children }) => {
     
-    const googleSignIn = (googleProvider) => {
+    const popUpSignIn = (googleProvider) => {
         return signInWithPopup(auth, googleProvider)
     }
 
@@ -18,7 +18,7 @@ const UserContext = ({ children }) => {
         return createUserWithEmailAndPassword(auth, email, password)
     }
 
-    const authValue = {googleSignIn, emailPasswordSignIn};
+    const authValue = {popUpSignIn, emailPasswordSignIn};
 
     return (
         <AuthContext.Provider value={authValue}>

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { AiFillGoogleCircle, AiOutlineGithub } from 'react-icons/ai'
 import { useContext } from 'react';
 import { AuthContext } from '../contexts/UserContext';
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import { useState } from 'react';
 
 const SignUp = () => {
@@ -12,19 +12,30 @@ const SignUp = () => {
     const [email , setEmail] = useState('');
     const [password , setPassword] = useState('');
 
-    const { googleSignIn, emailPasswordSignIn } = useContext(AuthContext);
+    const { popUpSignIn, emailPasswordSignIn } = useContext(AuthContext);
 
     const googleProvider = new GoogleAuthProvider();
+    const githubProvider = new GithubAuthProvider();
 
     const handleGoogleSignIn = () => {
-        googleSignIn(googleProvider)
+        popUpSignIn(googleProvider)
             .then(result => {
                 const user = result.user;
                 console.log(user)
             })
             .catch(error => console.error(error))
     }
+
+    const handleGithubSignIn = () => {
+        popUpSignIn(githubProvider)
+        .then(result=>{
+            const user = result.user;
+            console.log(user);
+        })
+        .catch(error => console.error(error))
+    }
     
+
     const handleEmailValue = (event) => {
         const emailInputValue = event.target.value;
         setEmail(emailInputValue)
@@ -49,6 +60,8 @@ const SignUp = () => {
         // console.log('clicked');
 
     }
+
+
 
     return (
         <div>
@@ -128,7 +141,7 @@ const SignUp = () => {
                     <Button className='w-96'><Link className='mx-2 font-bold ' onClick={handleGoogleSignIn}>Continue with Google </Link><AiFillGoogleCircle /></Button>
                 </div>
                 <div className='flex justify-center items-center'>
-                    <Button className='w-96'><Link className='mx-2 font-bold'>Continue with Github </Link><AiOutlineGithub /></Button>
+                    <Button className='w-96'><Link className='mx-2 font-bold' onClick={handleGithubSignIn}>Continue with Github </Link><AiOutlineGithub /></Button>
                 </div>
 
 
