@@ -8,6 +8,7 @@ import Login from '../components/Login'
 import SignUp from '../components/SignUp'
 import Blogs from '../components/Blogs';
 import Faq from '../components/Faq';
+import Category from '../components/Category';
 
 const Routes = () => {
     const routes = createBrowserRouter([
@@ -44,6 +45,11 @@ const Routes = () => {
                 {
                     path: 'signup',
                     element: <SignUp></SignUp>
+                },
+                {
+                    path: '/classes/:id',
+                    loader:({params}) => fetch(`http://localhost:5000/classes/${params.id}`),
+                    element: <Category></Category>
                 },
                 {
                     path: '*',
