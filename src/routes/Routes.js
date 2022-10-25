@@ -16,35 +16,37 @@ const Routes = () => {
             element: <Main></Main>,
             children: [
                 {
-                    path:'/',
-                    element:<Header></Header>
+                    path: '/',
+                    element: <Header></Header>
                 },
                 {
-                    path:'home',
+                    path: 'home',
                     element: <Home></Home>
                 },
                 {
-                    path:'classes',
-                    element:<Classes></Classes>
+                    path: 'classes',
+                    loader: () => fetch('http://localhost:5000/classes'),
+                    element: <Classes></Classes>
+
                 },
                 {
-                    path:'blogs',
-                    element:<Blogs></Blogs>
+                    path: 'blogs',
+                    element: <Blogs></Blogs>
                 },
                 {
-                    path:'faq',
+                    path: 'faq',
                     element: <Faq></Faq>
                 },
                 {
-                    path:'login',
+                    path: 'login',
                     element: <Login></Login>
                 },
                 {
-                    path:'signup',
+                    path: 'signup',
                     element: <SignUp></SignUp>
                 },
                 {
-                    path:'*',
+                    path: '*',
                     element: <h1>Sorry Route not found</h1>
                 }
             ]
