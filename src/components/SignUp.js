@@ -8,9 +8,9 @@ import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import { useState } from 'react';
 
 const SignUp = () => {
-    
-    const [email , setEmail] = useState('');
-    const [password , setPassword] = useState('');
+
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
     const { popUpSignIn, emailPasswordSignIn } = useContext(AuthContext);
 
@@ -28,13 +28,13 @@ const SignUp = () => {
 
     const handleGithubSignIn = () => {
         popUpSignIn(githubProvider)
-        .then(result=>{
-            const user = result.user;
-            console.log(user);
-        })
-        .catch(error => console.error(error))
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch(error => console.error(error))
     }
-    
+
 
     const handleEmailValue = (event) => {
         const emailInputValue = event.target.value;
@@ -50,12 +50,12 @@ const SignUp = () => {
     const handleEmailPasswordSignIn = (event) => {
 
         emailPasswordSignIn(email, password)
-        .then(result =>{
-            const user = result.user;
-            console.log(user);
-        })
-        .catch(error => console.error(error))
-        
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch(error => console.error(error))
+
         // const form = event.target;
         // console.log('clicked');
 
@@ -92,7 +92,7 @@ const SignUp = () => {
                         type="text"
                         placeholder="Your photo url"
                         required={true}
-                        
+
                     />
                 </div>
                 <div>
@@ -130,11 +130,11 @@ const SignUp = () => {
                     <h1>Already have an account? <Link to='/login' className=' underline'>Log In</Link> </h1>
                 </div>
 
-                <Link>
-                    <Button type="submit" onClick={handleEmailPasswordSignIn}>
-                        Submit
-                    </Button>
-                </Link>
+                <Button type="submit" onClick={handleEmailPasswordSignIn}>
+                    
+                    <Link> Submit</Link>
+
+                </Button>
 
                 <h1 className=' font-bold'>OR</h1>
                 <div className='flex justify-center items-center'>
