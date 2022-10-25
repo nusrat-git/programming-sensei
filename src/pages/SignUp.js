@@ -1,18 +1,24 @@
 import { Button, Label, TextInput } from 'flowbite-react';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AiFillGoogleCircle, AiOutlineGithub } from 'react-icons/ai'
 import { useContext } from 'react';
 import { AuthContext } from '../contexts/UserContext';
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import { useState } from 'react';
+import { toast } from 'react-toastify';
 
 const SignUp = () => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const { popUpSignIn, emailPasswordSignIn } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || '/';
+
+    const { popUpSignIn, emailPasswordSignIn, setLoading } = useContext(AuthContext);
 
     const googleProvider = new GoogleAuthProvider();
     const githubProvider = new GithubAuthProvider();
@@ -21,9 +27,18 @@ const SignUp = () => {
         popUpSignIn(googleProvider)
             .then(result => {
                 const user = result.user;
-                console.log(user)
+                if(user){
+                    navigate(from, {replace: true});
+                }
+                else{
+                    toast.error('Please log in')
+                }
+
             })
             .catch(error => console.error(error))
+            .finally(() => {
+                setLoading(false);
+            })
     }
 
     const handleGithubSignIn = () => {
@@ -40,12 +55,11 @@ const SignUp = () => {
         const emailInputValue = event.target.value;
         setEmail(emailInputValue)
     }
-    console.log(email);
+
     const handlePasswordValue = (event) => {
         const passwordInputValue = event.target.value;
         setPassword(passwordInputValue)
     }
-    console.log(password);
 
     const handleEmailPasswordSignIn = (event) => {
 

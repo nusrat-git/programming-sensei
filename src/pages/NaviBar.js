@@ -1,9 +1,18 @@
 import { Button, Navbar } from 'flowbite-react';
 import React from 'react';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import Logo from '../../src/logo.png'
+import { AuthContext } from '../contexts/UserContext';
 
 const NaviBar = () => {
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.error(error))
+    }
     return (
         <div className='m-5'>
             <Navbar
@@ -21,12 +30,27 @@ const NaviBar = () => {
                     </span>
                 </Navbar.Brand>
                 <div className="flex md:order-2 gap-2">
-                    <Button>
-                        <Link to='/login'>Log In</Link>
-                    </Button>
-                    <Button>
-                        <Link to='/signup'>Sign Up</Link>
-                    </Button>
+                    <>
+                        {
+                            user?.uid ?
+                                <>
+                                    <span>{user?.displayName}</span>
+                                    <Button variant="light" onClick={handleLogOut}><Link>Log out</Link></Button>
+                                </>
+                                :
+                                <>
+                                    <Button>
+                                        <Link to='/login'>Log In</Link>
+                                    </Button>
+                                    <Button>
+                                        <Link to='/signup'>Sign Up</Link>
+                                    </Button>
+                                </>
+                        }
+
+
+                    </>
+
                     <Navbar.Toggle />
                 </div>
                 <Navbar.Collapse>
@@ -45,7 +69,7 @@ const NaviBar = () => {
                     <Link to="/faq">
                         FAQ
                     </Link>
-                    
+
                 </Navbar.Collapse>
             </Navbar>
         </div>

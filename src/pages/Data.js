@@ -1,8 +1,9 @@
 import { Button, Card } from 'flowbite-react';
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Data = ({ data }) => {
-    const { class_img, class_name, class_price } = data;
+    const { id, class_img, class_name, class_price } = data;
     return (
         <div>
 
@@ -14,7 +15,7 @@ const Data = ({ data }) => {
                     <p className="font-semibold text-lg text-gray-700 dark:text-gray-400">
                         Price: {class_price}
                     </p>
-                    <Button>Buy Now</Button>
+                    <Button><Link to={ `/class/${id}`}>Buy Now</Link></Button>
                 </Card>
             </div>
 
