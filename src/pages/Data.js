@@ -1,4 +1,4 @@
-import { Card } from 'flowbite-react';
+import { Button, Card } from 'flowbite-react';
 import React from 'react';
 
 const Data = ({ data }) => {
@@ -14,6 +14,7 @@ const Data = ({ data }) => {
                     <p className="font-semibold text-lg text-gray-700 dark:text-gray-400">
                         Price: {class_price}
                     </p>
+                    <Button>Buy Now</Button>
                 </Card>
             </div>
 

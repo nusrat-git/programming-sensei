@@ -1,14 +1,14 @@
 import React from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Main from '../layouts/Main';
-import Header from '../components/Header'
-import Home from '../components/Home'
-import Classes from '../components/Classes'
-import Login from '../components/Login'
-import SignUp from '../components/SignUp'
-import Blogs from '../components/Blogs';
-import Faq from '../components/Faq';
-import Category from '../components/Category';
+import Header from '../pages/Header'
+import Home from '../pages/Home'
+import Classes from '../pages/Classes'
+import Login from '../pages/Login'
+import SignUp from '../pages/SignUp'
+import Blogs from '../pages/Blogs';
+import Faq from '../pages/Faq';
+import Category from '../pages/Category';
 
 const Routes = () => {
     const routes = createBrowserRouter([
@@ -48,7 +48,7 @@ const Routes = () => {
                 },
                 {
                     path: '/classes/:id',
-                    loader:({params}) => fetch(`http://localhost:5000/classes/${params.id}`),
+                    loader: ({ params }) => fetch(`http://localhost:5000/classes/${params.id}`),
                     element: <Category></Category>
                 },
                 {

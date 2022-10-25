@@ -8,7 +8,7 @@ const Category = () => {
 
     return (
 
-        <div className='grid grid-cols-2'>
+        <div className='grid grid-cols-2 gap-9 m-9'>
             {
                 datas.map(data => <Data key={data.id} data={data}></Data>)
             }

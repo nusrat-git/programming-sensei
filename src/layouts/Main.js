@@ -1,12 +1,18 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import NaviBar from '../components/NaviBar'
+// import Classes from '../components/Classes';
+import NaviBar from '../pages/NaviBar'
+import SideNav from '../pages/shared/SideNav';
 
 const Main = () => {
     return (
         <div>
             <NaviBar></NaviBar>
-            <Outlet></Outlet>
+            <div className='flex justify-around'>
+                <SideNav></SideNav>
+                <Outlet></Outlet>
+            </div>
+
         </div>
     );
 };
