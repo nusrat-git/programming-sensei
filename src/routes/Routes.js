@@ -28,7 +28,7 @@ const Routes = () => {
                 },
                 {
                     path: 'classes',
-                    loader: () => fetch('http://localhost:5000/classes'),
+                    loader: () => fetch('https://programming-sensei-server-side.vercel.app/classes'),
                     element: <Classes></Classes>
 
                 },
@@ -50,17 +50,17 @@ const Routes = () => {
                 },
                 {
                     path: '/classes/:id',
-                    loader: ({ params }) => fetch(`http://localhost:5000/classes/${params.id}`),
+                    loader: ({ params }) => fetch(`https://programming-sensei-server-side.vercel.app/classes/${params.id}`),
                     element: <Category></Category>
                 },
                 {
                     path: '/class/:id',
-                    loader: ({ params }) => fetch(`http://localhost:5000/class/${params.id}`),
+                    loader: ({ params }) => fetch(`https://programming-sensei-server-side.vercel.app/class/${params.id}`),
                     element: <CourseDetail></CourseDetail>
                 },
                 {
                     path: '/checkout/:id',
-                    loader: ({ params }) => fetch(`http://localhost:5000/checkout/${params.id}`),
+                    loader: ({ params }) => fetch(`https://programming-sensei-server-side.vercel.app/checkout/${params.id}`),
                     element: <PrivateRoute><Checkout></Checkout></PrivateRoute>
                 },
                 {
