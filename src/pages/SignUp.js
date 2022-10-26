@@ -29,10 +29,10 @@ const SignUp = () => {
         popUpSignIn(googleProvider)
             .then(result => {
                 const user = result.user;
-                if(user){
-                    navigate(from, {replace: true});
+                if (user) {
+                    navigate(from, { replace: true });
                 }
-                else{
+                else {
                     toast.error('Please log in')
                 }
 
@@ -89,7 +89,7 @@ const SignUp = () => {
 
 
     return (
-        <div  className='m-4 pt-5 md:m-0 md:pt-0  bg-slate-200 md:p-9 rounded-lg md:mt-9'>
+        <div className='m-4 pt-5 md:m-0 md:pt-0  bg-slate-200 p-5 md:p-9 rounded-lg md:mt-9'>
             <form className="flex flex-col gap-4 md:w-96 mx-auto md:p-9">
                 <div>
                     <div className="mb-2 block text-start ml-2">
@@ -157,11 +157,9 @@ const SignUp = () => {
                     <h1>Already have an account? <Link to='/login' className=' underline'>Log In</Link> </h1>
                 </div>
 
-                <Button type="submit" onClick={handleEmailPasswordSignIn}>
-                    
-                    <Link> Submit</Link>
-
-                </Button>
+                <Link className=''>
+                    <Button type="submit" onClick={handleEmailPasswordSignIn} className=" w-full">Sign UP</Button>
+                </Link>
 
                 <h1 className=' font-bold'>OR</h1>
                 <div className='flex justify-center items-center'>

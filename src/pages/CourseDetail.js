@@ -10,13 +10,14 @@ const CourseDetail = () => {
             <div className="max-w-sm">
                 <Card imgSrc={loadData.class_img}>
                     <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                        Noteworthy technology acquisitions 2021
+                        Class: {loadData.class_name}
                     </h5>
                     <p className="font-normal text-gray-700 dark:text-gray-400">
                         Catergory: {loadData.category_name}
                     </p>
+                    <p>{loadData.class_price}</p>
                     <p className="font-normal text-gray-700 dark:text-gray-400">
-                        Class: {loadData.class_name}
+                        
                     </p>
                     <p>{loadData.description}</p>
                     <Button><Link to={`/checkout/${loadData.id}`}>Get premium access</Link></Button>

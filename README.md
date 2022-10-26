@@ -1,3 +1,25 @@
+#### Info about Website 
+
+# Used Frameworks
+  1. # Tailwindcss
+  2. # Flowbite
+
+## Mobile and tablet responive
+
+### Own server site hosting
+
+#### Single page application
+
+##### Google , github and email-password authorized
+
+
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

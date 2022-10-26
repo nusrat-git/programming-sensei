@@ -7,7 +7,7 @@ import { AuthContext } from '../contexts/UserContext';
 import { MdDarkMode } from 'react-icons/md'
 
 const NaviBar = () => {
-    const { user, logOut, setUser } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
 
     const handleLogOut = () => {
         logOut()

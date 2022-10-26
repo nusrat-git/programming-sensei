@@ -24,7 +24,9 @@ const SideNav = () => {
                                     className=' bg-gray-300'
 
                                 >
-                                    <Link to={`/classes/${category.id}`}>{category.name}</Link >
+                                    <Link to={`/classes/${category.id}`}><button className=' w-96'>{category.name}</button></Link >
+
+
                                 </Sidebar.Item></h1>)
                             }
                         </Sidebar.ItemGroup>

@@ -1,7 +1,6 @@
 import React from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Main from '../layouts/Main';
-import Header from '../pages/Header'
 import Home from '../pages/Home'
 import Classes from '../pages/Classes'
 import Login from '../pages/Login'
@@ -21,7 +20,7 @@ const Routes = () => {
             children: [
                 {
                     path: '/',
-                    element: <Header></Header>
+                    element: <Home></Home>
                 },
                 {
                     path: 'home',
