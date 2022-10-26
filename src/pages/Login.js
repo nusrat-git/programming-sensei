@@ -63,6 +63,7 @@ const Login = () => {
                         required={true}
                         onBlur={handleEmailValue}
                     />
+                    
                 </div>
                 <div>
                     <div className="mb-2 block  text-start ml-2">

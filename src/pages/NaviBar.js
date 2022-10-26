@@ -1,4 +1,4 @@
-import { Avatar, Button, Navbar } from 'flowbite-react';
+import { Avatar, Button, Navbar, Tooltip } from 'flowbite-react';
 import React from 'react';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
@@ -38,14 +38,19 @@ const NaviBar = () => {
                             {
                                 user?.uid ?
                                     <>
-                                        
+
                                         <div className="flex gap-2 items-center">
-                                            <Avatar
-                                                img={user?.photoURL}
-                                                rounded={true}
-                                                bordered={true}
-                                            />
-                                            <span>{user?.displayName}</span>
+
+                                            <Tooltip content={user?.displayName}>
+
+                                                <Avatar
+                                                    img={user?.photoURL}
+                                                    rounded={true}
+                                                    bordered={true}
+                                                />
+
+
+                                            </Tooltip>
                                         </div>
 
                                         <Button variant="light" onClick={handleLogOut}><Link>Log out</Link></Button>

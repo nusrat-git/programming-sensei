@@ -63,12 +63,12 @@ const SignUp = () => {
         setPassword(passwordInputValue)
     }
     const handleNameValue = (event) => {
-        const photoInputValue = event.target.value;
-        setphoto(photoInputValue)
+        const nameInputValue = event.target.value;
+        setname(nameInputValue)
     }
     const handlePhotoValue = (event) => {
         const photoInputValue = event.target.value;
-        setname(photoInputValue)
+        setphoto(photoInputValue)
     }
 
     const handleEmailPasswordSignIn = (event) => {
@@ -103,7 +103,7 @@ const SignUp = () => {
                         type="text"
                         placeholder="Your Name"
                         required={true}
-                        onBlur={handlePhotoValue}
+                        onBlur={handleNameValue}
                     />
                 </div>
                 <div>
@@ -118,7 +118,7 @@ const SignUp = () => {
                         type="text"
                         placeholder="Your photo url"
                         required={true}
-                        onBlur={handleNameValue}
+                        onBlur={handlePhotoValue}
 
                     />
                 </div>
