@@ -5,7 +5,7 @@ import { Link, useLoaderData } from 'react-router-dom';
 const Classes = () => {
     const categories = useLoaderData();
     return (
-        <div className='grid grid-cols-2 gap-9 p-11'>
+        <div className='grid grid-cols-3 gap-9 p-11'>
             {
                 categories.map(category =>
                     <div key={category.id}>

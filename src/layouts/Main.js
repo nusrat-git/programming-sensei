@@ -8,11 +8,15 @@ const Main = () => {
     return (
         <div>
             <NaviBar></NaviBar>
-            <div className='md:flex justify-around'>
-                <SideNav></SideNav>
-                <Outlet></Outlet>
-            </div>
+            <div className='md:flex justify-evenly'>
+                <div className=' col-span-3'>
+                    <SideNav></SideNav>
+                </div>
+                <div className=' col-span-9'>
+                    <Outlet></Outlet>
+                </div>
 
+            </div>
         </div>
     );
 };

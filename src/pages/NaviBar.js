@@ -34,26 +34,28 @@ const NaviBar = () => {
                     </span>
                 </Navbar.Brand>
                 <div className="flex md:order-2 gap-2">
-                    <>
-                        {
-                            user?.uid ?
-                                <>
-                                    <span>{user?.displayName}</span>
-                                    <Button variant="light" onClick={handleLogOut}><Link>Log out</Link></Button>
-                                </>
-                                :
-                                <>
-                                    <Button>
-                                        <Link to='/login'>Log In</Link>
-                                    </Button>
-                                    <Button>
-                                        <Link to='/signup'>Sign Up</Link>
-                                    </Button>
-                                </>
-                        }
+                    <div className='md:flex hidden'>
+                        <>
+                            {
+                                user?.uid ?
+                                    <>
+                                        <span>{user?.displayName}</span>
+                                        <Button variant="light" onClick={handleLogOut}><Link>Log out</Link></Button>
+                                    </>
+                                    :
+                                    <>
+                                        <Button className='mr-7'>
+                                            <Link to='/login'>Log In</Link>
+                                        </Button>
+                                        <Button>
+                                            <Link to='/signup'>Sign Up</Link>
+                                        </Button>
+                                    </>
+                            }
 
 
-                    </>
+                        </>
+                    </div>
 
                     <Navbar.Toggle />
                 </div>
@@ -83,10 +85,10 @@ const NaviBar = () => {
                                     </>
                                     :
                                     <>
-                                        <Button className='my-4 md:my-4'>
+                                        <Button className='my-4 md:my-0 w-full'>
                                             <Link to='/login'>Log In</Link>
                                         </Button>
-                                        <Button>
+                                        <Button className='w-full'>
                                             <Link to='/signup'>Sign Up</Link>
                                         </Button>
                                     </>

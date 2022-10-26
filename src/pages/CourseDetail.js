@@ -6,7 +6,7 @@ const CourseDetail = () => {
     const loadData = useLoaderData();
 
     return (
-        <div className='md:m-0 m-4 md:pt-0 pt-9'>
+        <div className='md:m-0 m-4 md:pt-0 pt-9 md:mt-16'>
             <div className="max-w-sm">
                 <Card imgSrc={loadData.class_img}>
                     <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">

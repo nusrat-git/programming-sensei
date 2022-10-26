@@ -78,8 +78,8 @@ const SignUp = () => {
 
 
     return (
-        <div  className='m-4 pt-5 md:m-0 md:pt-0'>
-            <form className="flex flex-col gap-4 md:w-96 mx-auto">
+        <div  className='m-4 pt-5 md:m-0 md:pt-0  bg-slate-200 md:p-9 rounded-lg md:mt-9'>
+            <form className="flex flex-col gap-4 md:w-96 mx-auto md:p-9">
                 <div>
                     <div className="mb-2 block text-start ml-2">
                         <Label
