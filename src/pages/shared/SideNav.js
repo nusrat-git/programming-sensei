@@ -13,7 +13,7 @@ const SideNav = () => {
             .then(data => setCategories(data))
     }, [])
     return (
-        <div className='mt-8 md:ml-0 ml-14 md:block'>
+        <div className='mt-8 md:ml-0 ml-14 md:block' >
             <div className="w-fit">
                 <Sidebar aria-label="Default sidebar example">
                     <Sidebar.Items>
