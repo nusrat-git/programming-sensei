@@ -13,22 +13,10 @@ const Login = () => {
 
     const from = location.state?.from?.pathname || '/';
 
-    const { signIn, setLoading, setUser } = useContext(AuthContext)
+    const { signIn, setLoading, setUser, email, password, handleEmailValue, handlePasswordValue } = useContext(AuthContext)
 
 
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
     const [error, setError] = useState('');
-
-    const handleEmailValue = (event) => {
-        const emailInputValue = event.target.value;
-        setEmail(emailInputValue)
-    }
-
-    const handlePasswordValue = (event) => {
-        const passwordInputValue = event.target.value;
-        setPassword(passwordInputValue)
-    }
 
 
     const handleSignIn = (event) => {
@@ -100,19 +88,19 @@ const Login = () => {
                                         {error}
                                     </span>
                                 </Alert>
-                            </> 
+                            </>
                             :
                             <>
-                              <span>Please Log In</span>
-                            </> 
+                                <span>Please Log In</span>
+                            </>
 
                     }
 
 
                 </div>
-                
-                    <Link><Button type="submit" onClick={handleSignIn} className=" w-full">Log In</Button></Link>
-                
+
+                <Link><Button type="submit" onClick={handleSignIn} className=" w-full">Log In</Button></Link>
+
             </form>
         </div>
     );

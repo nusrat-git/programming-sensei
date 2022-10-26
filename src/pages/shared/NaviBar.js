@@ -2,8 +2,8 @@ import { Avatar, Button, Navbar, Tooltip } from 'flowbite-react';
 import React from 'react';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import Logo from '../../src/logo.png'
-import { AuthContext } from '../contexts/UserContext';
+import Logo from '../../logo.png'
+import { AuthContext } from '../../contexts/UserContext';
 import { MdDarkMode } from 'react-icons/md'
 
 const NaviBar = () => {

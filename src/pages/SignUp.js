@@ -5,22 +5,17 @@ import { AiFillGoogleCircle, AiOutlineGithub } from 'react-icons/ai'
 import { useContext } from 'react';
 import { AuthContext } from '../contexts/UserContext';
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
-import { useState } from 'react';
 import { toast } from 'react-toastify';
 
 const SignUp = () => {
 
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [photo, setphoto] = useState('');
-    const [name, setname] = useState('');
 
     const navigate = useNavigate();
     const location = useLocation();
 
     const from = location.state?.from?.pathname || '/';
 
-    const { popUpSignIn, emailPasswordSignIn, setLoading, updateUserProfile } = useContext(AuthContext);
+    const { popUpSignIn, emailPasswordSignIn, setLoading, updateUserProfile, email, password, photo, name, handleEmailValue, handleNameValue, handlePasswordValue, handlePhotoValue } = useContext(AuthContext);
 
     const googleProvider = new GoogleAuthProvider();
     const githubProvider = new GithubAuthProvider();
@@ -47,42 +42,34 @@ const SignUp = () => {
         popUpSignIn(githubProvider)
             .then(result => {
                 const user = result.user;
+                if (user) {
+                    navigate(from, { replace: true });
+                }
+                else {
+                    toast.error('Please log in')
+                }
                 console.log(user);
             })
             .catch(error => console.error(error))
     }
 
 
-    const handleEmailValue = (event) => {
-        const emailInputValue = event.target.value;
-        setEmail(emailInputValue)
-    }
-
-    const handlePasswordValue = (event) => {
-        const passwordInputValue = event.target.value;
-        setPassword(passwordInputValue)
-    }
-    const handleNameValue = (event) => {
-        const nameInputValue = event.target.value;
-        setname(nameInputValue)
-    }
-    const handlePhotoValue = (event) => {
-        const photoInputValue = event.target.value;
-        setphoto(photoInputValue)
-    }
-
     const handleEmailPasswordSignIn = (event) => {
+        event.preventDefault();
 
         emailPasswordSignIn(email, password)
             .then(result => {
                 const user = result.user;
-                updateUserProfile(name, photo)
+                updateUserProfile(name, photo);
+                if (user) {
+                    navigate(from, { replace: true });
+                }
+                else {
+                    toast.error('Please log in')
+                };
                 console.log(user);
             })
             .catch(error => console.error(error))
-
-        // const form = event.target;
-        // console.log('clicked');
 
     }
 
