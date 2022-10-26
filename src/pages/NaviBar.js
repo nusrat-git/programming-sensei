@@ -1,9 +1,10 @@
-import { Button, Navbar } from 'flowbite-react';
+import { Avatar, Button, Navbar } from 'flowbite-react';
 import React from 'react';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import Logo from '../../src/logo.png'
 import { AuthContext } from '../contexts/UserContext';
+import { MdDarkMode } from 'react-icons/md'
 
 const NaviBar = () => {
     const { user, logOut, setUser } = useContext(AuthContext);
@@ -11,8 +12,6 @@ const NaviBar = () => {
     const handleLogOut = () => {
         logOut()
             .then(() => {
-
-                setUser(null)
 
             })
             .catch(error => console.error(error))
@@ -34,12 +33,21 @@ const NaviBar = () => {
                     </span>
                 </Navbar.Brand>
                 <div className="flex md:order-2 gap-2">
-                    <div className='md:flex hidden'>
+                    <div className='md:flex hidden gap-5'>
                         <>
                             {
                                 user?.uid ?
                                     <>
-                                        <span>{user?.displayName}</span>
+                                        
+                                        <div className="flex gap-2 items-center">
+                                            <Avatar
+                                                img={user?.photoURL}
+                                                rounded={true}
+                                                bordered={true}
+                                            />
+                                            <span>{user?.displayName}</span>
+                                        </div>
+
                                         <Button variant="light" onClick={handleLogOut}><Link>Log out</Link></Button>
                                     </>
                                     :
@@ -74,6 +82,9 @@ const NaviBar = () => {
                     </Link>
                     <Link to="/faq">
                         FAQ
+                    </Link>
+                    <Link>
+                        <MdDarkMode></MdDarkMode>
                     </Link>
                     <div className='md:hidden'>
                         <>

@@ -13,7 +13,7 @@ const Login = () => {
 
     const from = location.state?.from?.pathname || '/';
 
-    const {signIn,setLoading,setUser} = useContext(AuthContext)
+    const {signIn,setLoading,setUser, updateUserProfile} = useContext(AuthContext)
 
 
     const [email, setEmail] = useState('');
@@ -45,7 +45,6 @@ const Login = () => {
             setLoading(false);
         })
     }
-    
 
     return (
         <div className='m-4 pt-5 md:m-0 md:pt-0 bg-slate-200 md:p-9 rounded-lg md:mt-10'>

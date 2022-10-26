@@ -12,13 +12,15 @@ const SignUp = () => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [photo, setphoto] = useState('');
+    const [name, setname] = useState('');
 
     const navigate = useNavigate();
     const location = useLocation();
 
     const from = location.state?.from?.pathname || '/';
 
-    const { popUpSignIn, emailPasswordSignIn, setLoading } = useContext(AuthContext);
+    const { popUpSignIn, emailPasswordSignIn, setLoading, updateUserProfile } = useContext(AuthContext);
 
     const googleProvider = new GoogleAuthProvider();
     const githubProvider = new GithubAuthProvider();
@@ -60,12 +62,21 @@ const SignUp = () => {
         const passwordInputValue = event.target.value;
         setPassword(passwordInputValue)
     }
+    const handleNameValue = (event) => {
+        const photoInputValue = event.target.value;
+        setphoto(photoInputValue)
+    }
+    const handlePhotoValue = (event) => {
+        const photoInputValue = event.target.value;
+        setname(photoInputValue)
+    }
 
     const handleEmailPasswordSignIn = (event) => {
 
         emailPasswordSignIn(email, password)
             .then(result => {
                 const user = result.user;
+                updateUserProfile(name, photo)
                 console.log(user);
             })
             .catch(error => console.error(error))
@@ -92,6 +103,7 @@ const SignUp = () => {
                         type="text"
                         placeholder="Your Name"
                         required={true}
+                        onBlur={handlePhotoValue}
                     />
                 </div>
                 <div>
@@ -106,6 +118,7 @@ const SignUp = () => {
                         type="text"
                         placeholder="Your photo url"
                         required={true}
+                        onBlur={handleNameValue}
 
                     />
                 </div>
